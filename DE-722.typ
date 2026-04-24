@@ -81,33 +81,31 @@ Which gives us our final solution of: \
 Apply $cal(L){}$ to both sides: \
 $s^2 Y(s) - s y(0) - y'(0) - 4s Y(s) - 4y(0) = frac(6, s- 3) - frac(3, s + 1)$ \
 Substituting our initial conditions: \
-$s^2 Y(s) - s + 1 - 4s Y(s) - 4 = frac(6, s- 3) - frac(3, s + 1)$ \
+$s^2 Y(s) - s + 1 - 4s Y(s) + 4 = frac(6, s- 3) - frac(3, s + 1)$ \
 Isolate $Y(s)$ and add over the $-3$ and $-s$:\ // First get common denom
-$Y(s)(s^2-4)=frac(6, s- 3) - frac(3, s + 1) +s + 3$ \
+$Y(s)(s^2-4s)=frac(6, s- 3) - frac(3, s + 1) +s - 5$ \
 Combining our first two fractions results in: \
-$ frac(6s + 6 - 3s + 9, (s-3)(s+1)) + s + 3 #tag[(arrow)]$ 
+$ frac(6s + 6 - 3s + 9, (s-3)(s+1)) + s - 5 #tag[(arrow)]$ 
 #sym.arrow 
-$ frac(3s + 15, (s-3)(s+1)) + s + 3$ \
-Adding the $s$ and the $3$: \
-$ frac(3s + 15 + s^3 - 2s^2 - 3s + 3s^2 -6s - 9, (s-3)(s+1))#tag[(arrow)]$
+$ frac(3s + 15, (s-3)(s+1)) + s - 5$ \
+Adding the $s$ and the $-5$: \
+$ frac(3s + 15 + s^3 - 7s^2 + 7s + 15, (s-3)(s+1))#tag[(arrow)]$
 #sym.arrow 
-$ frac(s^3 + s^2 -6s + 6, (s-3)(s+1))$ \
+$ frac(s^3 - 7s^2 + 10s + 30, (s-3)(s+1))$ \
 Dividing over the denominator from $Y(s)$: \
-$ frac(s^3 + s^2 - 6s + 6, (s-3)(s+1)(s^2-4))$ \
-Difference of perfect squares on the $(s^2-4)$: \
-$ frac(s^3 + s^2 - 6s + 6, (s-3)(s+1)(s-2)(s+2))$ \
+$ frac(s^3 - 7s^2 + 10s + 30, s(s-3)(s+1)(s-4))$ \
 Setting up the PFD of our fraction: \
-$ frac(s^3 + s^2 - 6s + 6, (s-3)(s+1)(s-2)(s+2)) = frac(A, s-3) + frac(B, s+1) + frac(C, s-2) + frac(D, s+2)$ \
-Addin each fraction: \
-$ frac(A s^3 + B s^3 + C s^3 + D s^3 - 3A s^2 + B s^2 - 4D s^2 - 4A s - 4B s- 7C s + D s + 12A - 4B - 6C + 6D, (s-3)(s+1)(s-2)(s+2))$ \
+$ frac(s^3 - 7s^2 + 10s + 30, s(s-3)(s+1)(s-4)) = frac(A, s) + frac(B, s+1) + frac(C, s-4) + frac(D, s-3)$ \
+Adding each fraction: \
+$ frac(A s^3 + B s^3 + C s^3 + D s^3 - 6A s^2 -  7B s^2 - -2C s^2 - 3D s^2 + 5A s + 12B s - 3C s - 4D s + 12A, s(s-3)(s+1)(s-4))$ \
 The coefficient matrix for our numerator gives us: \
-$mat(1, 1, 1, 1, 1; -3, 1, 0, -4, 1; -4, -4, -7, 1, -6; 12, -4, -6, -6, 6)#tag[(arrow)]$
+$mat(1,1,1,1,1;-6,-7,-2,-3,-7;5,12,-3,-4,10;12,0,0,0,30)#tag[(arrow)]$
 #sym.arrow
 RREF: 
-$mat(1, 0, 0, 0, 0; 0, 1, 0, 0, frac(3,5); 0, 0, 1, 0, frac(1,2); 0, 0, 0, 1, -frac(1,10))$ \ \
+$mat(1, 0, 0, 0, frac(5,2); 0, 1, 0, 0, -frac(3,5); 0, 0, 1, 0, frac(11,10); 0, 0, 0, 1, -2)$ \ \
 Thus our corresponding coefficients are: \
-$ A = 0 , B = frac(3,5) , C = frac(1,2) , D = -frac(1,10)  $
+$ A = frac(5,2) , B = -frac(3,5) , C = frac(11,10) , D = -2 $
 Thus our decomposed fraction results in: \
-$ Y(s) = frac(3, 5(s+1)) + frac(1, 2(s-2)) - frac(1, 10(s+2))$ \
+$ Y(s) = frac(5, 2s) - frac(3, 5(s+1)) + frac(11, 10(s-4)) - frac(2,(s-3))$ \
 Taking $cal(L)^(-1)$ of both sides gives us: \
-$y = frac(3,5)e^(-t) + frac(1,2)e^(2t) - frac(1,10)e^(-2t)$ \
+$ y = frac(5,2) - frac(3,5)e^(3t) + frac(11,10)e^(-t) - 2e^(4t) $ \
