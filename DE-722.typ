@@ -1,11 +1,14 @@
 #import "@preview/intextual:0.1.1": *
 #set page(numbering: "1", number-align: top + right)
+#set page(
+  background: image("white-paper-texture.jpg", width: 100%, height: 100%)
+)
 *
 Imran Qasimi \
 Math 31 -  Differential Equations \
 Section 7.2.2 
 *
-== 1. $y' - y = 2cos(5t) | y(0) = 0$
+== 38. $y' - y = 2cos(5t) | y(0) = 0$
 \
 #set par(justify: true)
 #set align(center)
@@ -44,7 +47,7 @@ $y=-frac(1,13)cal(L)^(-1){frac(s,s^2+25)} + frac(5,13)cal(L)^(-1){frac(5,s^2+25)
 Finally: \
 *$[y=frac(1,13)e^(t)+frac(5,13)sin(5t)-frac(1,13)cos(5t)]$*
 #set align(left)
-== 2. $y'' + 5y' + 4y = 0 |  y(0) = 1, y'(0) = 0$
+== 39. $y'' + 5y' + 4y = 0 |  y(0) = 1, y'(0) = 0$
 #set align(center)
 Taking the Laplace of both sides gives us:\
 $s^2 Y(s) -s y(0) - y'(0) + 5(s Y(s) - y(0)) + 4Y(s) = 0$\
@@ -73,11 +76,38 @@ $y = cal(L)^(-1){frac(4,3(s+1))} - cal(L)^(-1){frac(1,3(s+4))}$ \
 Which gives us our final solution of: \
 *[$y = frac(4,3)e^(-t) - frac(1,3)e^(-4t)$]*
 #set align(left)
-== 3. $y'' - 4y' = 6e^(3t) - 3e^(-t) | y(0) = 1, y'(0) = -1$
+== 40. $y'' - 4y' = 6e^(3t) - 3e^(-t) | y(0) = 1, y'(0) = -1$
 #set align(center)
 Apply $cal(L){}$ to both sides: \
 $s^2 Y(s) - s y(0) - y'(0) - 4s Y(s) - 4y(0) = frac(6, s- 3) - frac(3, s + 1)$ \
 Substituting our initial conditions: \
 $s^2 Y(s) - s + 1 - 4s Y(s) - 4 = frac(6, s- 3) - frac(3, s + 1)$ \
-Isolate $Y(s)$ and add over the $-3$ and $-s$:\
-$Y(s)(s^2-4)=frac(6, s- 3) - frac(3, s + 1) +s + 3$
+Isolate $Y(s)$ and add over the $-3$ and $-s$:\ // First get common denom
+$Y(s)(s^2-4)=frac(6, s- 3) - frac(3, s + 1) +s + 3$ \
+Combining our first two fractions results in: \
+$ frac(6s + 6 - 3s + 9, (s-3)(s+1)) + s + 3 #tag[(arrow)]$ 
+#sym.arrow 
+$ frac(3s + 15, (s-3)(s+1)) + s + 3$ \
+Adding the $s$ and the $3$: \
+$ frac(3s + 15 + s^3 - 2s^2 - 3s + 3s^2 -6s - 9, (s-3)(s+1))#tag[(arrow)]$
+#sym.arrow 
+$ frac(s^3 + s^2 -6s + 6, (s-3)(s+1))$ \
+Dividing over the denominator from $Y(s)$: \
+$ frac(s^3 + s^2 - 6s + 6, (s-3)(s+1)(s^2-4))$ \
+Difference of perfect squares on the $(s^2-4)$: \
+$ frac(s^3 + s^2 - 6s + 6, (s-3)(s+1)(s-2)(s+2))$ \
+Setting up the PFD of our fraction: \
+$ frac(s^3 + s^2 - 6s + 6, (s-3)(s+1)(s-2)(s+2)) = frac(A, s-3) + frac(B, s+1) + frac(C, s-2) + frac(D, s+2)$ \
+Addin each fraction: \
+$ frac(A s^3 + B s^3 + C s^3 + D s^3 - 3A s^2 + B s^2 - 4D s^2 - 4A s - 4B s- 7C s + D s + 12A - 4B - 6C + 6D, (s-3)(s+1)(s-2)(s+2))$ \
+The coefficient matrix for our numerator gives us: \
+$mat(1, 1, 1, 1, 1; -3, 1, 0, -4, 1; -4, -4, -7, 1, -6; 12, -4, -6, -6, 6)#tag[(arrow)]$
+#sym.arrow
+RREF: 
+$mat(1, 0, 0, 0, 0; 0, 1, 0, 0, frac(3,5); 0, 0, 1, 0, frac(1,2); 0, 0, 0, 1, -frac(1,10))$ \ \
+Thus our corresponding coefficients are: \
+$ A = 0 , B = frac(3,5) , C = frac(1,2) , D = -frac(1,10)  $
+Thus our decomposed fraction results in: \
+$ Y(s) = frac(3, 5(s+1)) + frac(1, 2(s-2)) - frac(1, 10(s+2))$ \
+Taking $cal(L)^(-1)$ of both sides gives us: \
+$y = frac(3,5)e^(-t) + frac(1,2)e^(2t) - frac(1,10)e^(-2t)$ \
