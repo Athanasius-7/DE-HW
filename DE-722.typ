@@ -3,11 +3,12 @@
 #set page(
   background: image("white-paper-texture.jpg", width: 100%, height: 100%),
 )
-*
-Imran Qasimi \
-Math 31 -  Differential Equations \
-Section 7.2.2
-*
+#align(left)[
+  #text(weight: "bold")[Imran Qasimi] \
+  Math 31 — Differential Equations \
+  Section 7.2.2 \
+  #line(length: 100%, stroke: 0.5pt)  // adds a clean divider
+]
 == 38. $y' - y = 2cos(5t) | y(0) = 0$
 \
 #set par(justify: true)
