@@ -97,15 +97,44 @@ $ frac(s^3 - 7s^2 + 10s + 30, s(s-3)(s+1)(s-4))$ \
 Setting up the PFD of our fraction: \
 $ frac(s^3 - 7s^2 + 10s + 30, s(s-3)(s+1)(s-4)) = frac(A, s) + frac(B, s+1) + frac(C, s-4) + frac(D, s-3)$ \
 Adding each fraction: \
-$ frac(A s^3 + B s^3 + C s^3 + D s^3 - 6A s^2 -  7B s^2 - -2C s^2 - 3D s^2 + 5A s + 12B s - 3C s - 4D s + 12A, s(s-3)(s+1)(s-4))$ \
+$ frac(A s^3 + B s^3 + C s^3 + D s^3 - 6A s^2 -  7B s^2 -2C s^2 - 3D s^2 + 5A s + 12B s - 3C s - 4D s + 12A, s(s-3)(s+1)(s-4))$ \
 The coefficient matrix for our numerator gives us: \
-$mat(1,1,1,1,1;-6,-7,-2,-3,-7;5,12,-3,-4,10;12,0,0,0,30)#tag[(arrow)]$
+$mat(1,1,1,1,1;-6,-7,-2,-3,-7;5,12,-3,-4,10;12,0,0,0,30; augment: #4)#tag[(arrow)]$
 #sym.arrow
 RREF: 
-$mat(1, 0, 0, 0, frac(5,2); 0, 1, 0, 0, -frac(3,5); 0, 0, 1, 0, frac(11,10); 0, 0, 0, 1, -2)$ \ \
+$mat(1, 0, 0, 0, frac(5,2); 0, 1, 0, 0, -frac(3,5); 0, 0, 1, 0, frac(11,10); 0, 0, 0, 1, -2; augment: #4)$ \ \
 Thus our corresponding coefficients are: \
 $ A = frac(5,2) , B = -frac(3,5) , C = frac(11,10) , D = -2 $
 Thus our decomposed fraction results in: \
 $ Y(s) = frac(5, 2s) - frac(3, 5(s+1)) + frac(11, 10(s-4)) - frac(2,(s-3))$ \
 Taking $cal(L)^(-1)$ of both sides gives us: \
-$ y = frac(5,2) - frac(3,5)e^(3t) + frac(11,10)e^(-t) - 2e^(4t) $ \
+*$ [y = frac(5,2) - frac(3,5)e^(-t) + frac(11,10)e^(4t) - 2e^(3t)] $*
+#set align(left)
+== 41. $y'' + y = sqrt(2)sin(sqrt(2)t) | y(0) = 10, y'(0) = 0$
+#set align(center)
+$cal(L)$ each side: \
+$ s^2Y(s) - s y(0) - y'(0) + Y(s) = frac(sqrt(2) sqrt(2), s^2 + (sqrt(2))^2)$\
+Substituting $y(0)$ and $y'(0)$: \
+$ s^2Y(s) - 10s + Y(s) = frac(2, s^2 + 2)$\
+Adding over the $10s$ and factoring $Y(s)$:\
+$ Y(s)(s^2+1) = frac(2,s^2+2) + 10s$ \ 
+Simplifying further: \
+$Y(s)=frac(10s^3 + 20s + 2, (s^2+2)(s^2+1))$ \
+Performing PFD, Note: $(s^2+2)(s^2+1)$ are both irreducible: \
+$frac(10s^3 + 20s + 2, (s^2+2)(s^2+1)) = frac(A s + B, (s^2+1)) + frac(C s + D, (s^2 + 2))$ \
+Combing the two fractions: \
+$frac(A s^3 + 2A s + B s^2 + 2B + C s^3 + C s + D s^2 + D, (s^2+1)(s^2+2))$ \
+Which gives us the following coefficent matrix: \
+$mat(1,0,1,0,10;0,1,0,1,0;2,0,1,0,20;0,2,0,1,2; augment: #4) #tag[(arrow)]$
+#sym.arrow
+RREF: $mat(1,0,0,0,10;0,1,0,0,2;0,0,1,0,0;0,0,0,1,-2; augment: #4)$ \
+Which gives us our decomposed fraction: \
+$frac(10s+2, (s^2+1)) - frac(2, (s^2+2))$ \
+Getting our fractions in form for $cal(L)^(-1)$: \
+$Y(s) = frac(10s,s^2+1) + frac(2,(s^2+1)) - frac(2,s^2+2)$ \
+Take the inverse Laplace: \
+*$[y = 10cos(t) + 2sin(t) - sqrt(2)sin(sqrt(2)t)]$*
+#set align(left)
+== 42. $y'' + 9y = e^(t) | y(0) = 0, y'(0) = 0$
+#set align(center)
+Setup $cal(L)$: \
