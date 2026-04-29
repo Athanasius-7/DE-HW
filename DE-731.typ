@@ -51,3 +51,22 @@ $cal(L)^(-1){frac(1, s^2-6s + 9-9+10)} #tag[(arrow)]$
 $cal(L)^(-1){frac(1, (s-3)^2 + 1)} #tag[(arrow)]$ \
 Which gives us our final answer of: \
 *$[e^(3t)sin(t)]$* \
+#set align(left)
+== 15. $cal(L)^(-1){frac(s, s^2 + 4s + 5)}$
+#set align(center)
+First complete the square on the bottom: \
+$frac(s, (s+2)^2 + 1) $ \
+Take inverse which gives us our final answer: \
+*$[e^(-2t)cos(t)]$*
+#set align(left)
+== 16. $cal(L)^(-1){frac(2s+5, s^2 + 6s + 34)}$
+#set align(center)
+Complete the square on the denominator: \
+$cal(L)^(-1){frac(2s+5, (s+3)^2 + 25)}$ \
+Separate the fraction: \
+$cal(L)^(-1){frac(2s, (s+3)^2 + 25) + frac(5, (s+3)^2 + 25)}$ \
+Which results in: \
+*$[2e^(-3t)cos(5t) + 5e^(-3t)sin(5t)]$*
+#set align(left)
+== 17. $cal(L)^(-1){frac(s, (s+1)^2)}$
+#set align(center)
