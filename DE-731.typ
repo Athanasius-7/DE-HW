@@ -154,6 +154,31 @@ Which gives us our decomposed fraction of: \
 $Y(s) = frac(2, 27s) + frac(1, 9s^2) - frac(2, 27(s-3)) + frac(10, (s-3)^2)$ \
 $cal(L)^(-1)$ gives us our solution: \
 *$[y = frac(2,27) + frac(t, 9) - frac(2,27)e^(3t) + 10t e^(-3t)]$*
-
-
+#set align(left)
+== 32. $2y'' + 20y' + 51y = 0 | y(0) = 2, y'(0) = 0$
+#set align(center)
+Laplace both sides: \
+$2s^2 Y(s) - 2s y(0) - 2y'(0) + 20s Y(s) - 20y(0) + 51Y(s) = 0$ \
+Substituing in our initial conditions: \
+$2s^2 Y(s) - 4s + 20s Y(s) - 40 + 51 Y(s) = 0$ \
+Isolate for $Y(s)$: \
+$Y(s) = frac(4s + 40, 2s^2+20s+51)$ \ 
+Factor out a $2$ on the denominator and numerator: \
+$Y(s) = frac((2)(2s + 20), (2)(s^2+10s+frac(51,2)))$ \ 
+Cancel the $2$s which gives us a simplified fraction: \
+$frac(2s+20, s^2 + 10s + frac(51,2))$ \
+Complete the square: \
+$frac(2s+20, s^2 + 10s + 25 - 25 + frac(51,2))#tag[(arrow)]$ 
+#sym.arrow
+$frac(2s+10+10,(s+5)^2 + frac(1,2))$ \
+Split the fraction: \
+$frac(2(s+5),(s+5)^2 + frac(1,2)) + frac(10,(s+5)^2 + frac(1,2))$ \
+Get into form: \
+$frac(2(s+5),(s+5)^2 + sqrt(frac(1,2))^2) + frac(10,(s+5)^2 + sqrt(frac(1,2))^2)$ \
+Take $cal(L)^(-1)$ \
+$y = 2e^(-5t)cos(frac(t,sqrt(2))) + 10sqrt(2)e^(-5t)sin(frac(t, sqrt(2)))$
+#set align(left)
+== 34. $y''-2y'+5y=1+t | y(0) = 0, y'(0) = 4$
+#set align(center)
+Take $cal(L)$: \
 
