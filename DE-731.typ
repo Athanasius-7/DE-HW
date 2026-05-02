@@ -70,3 +70,90 @@ Which results in: \
 #set align(left)
 == 17. $cal(L)^(-1){frac(s, (s+1)^2)}$
 #set align(center)
+Setup the PFD: \
+$frac(s, (s+1)^2) = frac(A, (s+1)) + frac(B, (s+1)^2)$ \
+Multiplying both sides by $(s+1)^2$ results in: \
+$s = A s + A + B$ \
+And by comparing coefficents we get that: \
+$ A = 1 \ A + B = -1 \ therefore \ A = 1 \ B = -1$\
+Our PFD then becomes: \
+$frac(1, (s+1)) - frac(1, (s+1)^2)$ \
+And thus the inverse Laplace is: \
+*$[e^(-t) - t e^(-t)]$*
+#set align(left)
+== 18. $cal(L)^(-1){frac(5s,(s-2)^(2))}$
+#set align(center)
+Start PFD: \
+$ frac(5s, (s-2)^2) = frac(A, (s-2)) + frac(B, (s-2)^2)$ \
+Multiply both sides by $(s-2)^2$ \
+$ 5s = A s - 2A + B$ \
+Comparing coefficents: \
+$ A = 5 \ -2A + B = 0 \ therefore \ A = 5 \ B = 10$\
+Resulting in: \
+$ frac(5, (s-2)) + frac(10, (s-2)^2)$ \
+And after taking our inverse Laplace our final answer is: \
+*$[5e^(2t)+10t e(2t)]$*
+#set align(left)
+== 19. $cal(L)^(-1){frac(2s - 1, s^2(s+1)^3)}$
+#set align(center)
+PFD: \
+$frac(2s - 1, s^2(s+1)^3) = frac(A, s) + frac(B, s^2) + frac(C, s+1) + frac(D, (s+1)^2) + frac(E, (s+1)^3)$ \
+Multiplying both sides by $s^2(s+1)^3$\
+$2s-1=A s^4 + 3A s^3 + 3A s^2 + A s + B s^3 + 3B s^2 + 3B s + B + C s^4 + 2C s^3 + C s^2 + D s^3 + D s^2 + E s^2$ \
+Setting up our augmented matrix: \
+$mat(1,0,1,0,0,0;3,1,2,1,0,0;3,3,1,1,1,0;1,3,0,0,0,2;0,1,0,0,0,-1; augment: #5)#tag[(arrow)]$
+#sym.arrow
+RREF:
+$mat(1,0,0,0,0,5;0,1,0,0,0,-1;0,0,1,0,0,-5;0,0,0,1,0,-4;0,0,0,0,1,-3; augment: #5)$ \
+Which give us our decomposed fraction: \
+$frac(5,s) - frac(1, s^2) - frac(5, s+1) - frac(4, (s+1)^2) - frac(3, (s+1)^3)$ \
+Taking the inverse Laplace gives us the final answer of: \
+*$[5 - t - 5e^(-t) - 4t e^(-t) - frac(3,2)t^2 e^(-t)]$*
+#set align(left)
+== 27. $y'' + 2y' + y = 0 | y(0) = 1, y'(0) = 1$
+#set align(center)
+Take the Laplace of both sides: \
+$s^2 Y(s) - s y(0) - y'(0) + 2s Y(s) - 2y(0) + Y(s) = 0$ \
+Substitute the initial conditions: \
+$s^2 Y(s) - s - 1 + 2s Y(s) - 2 + Y(s) = 0$ \
+Isolating for $Y(s)$\
+$Y(s)(s^2 + 2s +1) = s +3$ \
+Divide by $(s^2 + 2s + 1)$ \
+$Y(s) = frac(s+3, (s+1)^2)$ \
+Decomposing our fraction: \
+$frac(s+3, (s+1)^2) = frac(A, (s+1)) + frac(B, (s+1)^2)$ \
+Multiplying by $(s+1)^2$ gives us: \
+$s+3 = A s + A + B$\
+Comparing coefficents: \
+$ A = 1 \ A + B = 3 \ therefore \ A = 1 \ B = 2$\
+Resulting fraction: \
+$Y(s)=frac(1, s+1) + frac(2, (s+1)^2)$ \
+Taking the inverse Laplace gives us our solution: \
+*$[y = e^(-t) + 2t e^(-t)]$*
+#set align(left)
+== 29. $y'' - 6y' + 9y = t | y(0) = 0, y'(0) = 1$
+#set align(center)
+Take the Laplace of both sides: \
+$s^2 Y(s) - s y(0) - y'(0) - 6s Y(s) + 6y(0) + 9Y(s) = frac(1,s^2)$ \
+Substitute in our initial conditions: \
+$s^2 Y(s) - 1 - 6s Y(s) + 9Y(s) = frac(1,s^2)$ \
+Add over the $1$ and isolate for $Y(s)$ \
+$Y(s)(s^2-6s+9)=frac(1+s^2, s^2)$ \
+Isolating for $Y(s)$ \
+$Y(s) = frac(1+s^2, s^2(s-3)^2)$ \ 
+Decomposing our fraction: \
+$frac(1+s^2, s^2(s-3)^2) = frac(A, s) + frac(B, s^2) + frac(C, (s-3)) + frac(D, (s-3)^2)$ \
+Multiplying both sides by $s^2(s-3)^3$ \
+$1 + s^2 = A s^3 - 6A s^2 + 9A s + B s^2 - 6B s + 9B + C s^3 - 3C s^2 + D s^2$ \
+Setting up our matrix: \
+$mat(1,0,-3,0,0;-6,1,-3,1,1;9,-6,0,0,0;0,9,0,0,1;augment: #4)#tag[(arrow)]$
+#sym.arrow
+RREF: 
+$mat(1,0,0,0,frac(2, 27);0,1,0,0,frac(1,9);0,0,1,0,-frac(2,27);0,0,0,1,frac(10,9);augment: #4)$ \
+Which gives us our decomposed fraction of: \
+$Y(s) = frac(2, 27s) + frac(1, 9s^2) - frac(2, 27(s-3)) + frac(10, (s-3)^2)$ \
+$cal(L)^(-1)$ gives us our solution: \
+*$[y = frac(2,27) + frac(t, 9) - frac(2,27)e^(3t) + 10t e^(-3t)]$*
+
+
+
