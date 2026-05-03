@@ -181,4 +181,30 @@ $y = 2e^(-5t)cos(frac(t,sqrt(2))) + 10sqrt(2)e^(-5t)sin(frac(t, sqrt(2)))$
 == 34. $y''-2y'+5y=1+t | y(0) = 0, y'(0) = 4$
 #set align(center)
 Take $cal(L)$: \
+$s^2 Y(s) - s y(0)  - y'(0) - 2s Y(s) - 2y(0) + 5Y(s) = frac(s+1, s^2)$ \
+Substituting in our values: \
+$s^2 Y(s) - 4 - 2s Y(s) + 5Y(s) = frac(s+1, s^2)$ \
+Solving for $Y(s)$ \
+$Y(s) = frac(4, s^2 - 2s + 5) + frac(s+1, s^2(s^2-2s+5))$ \
+Completing the square: \
+$Y(s) = frac(4, (s-1)^2 + 4) + frac(s+1, s^2((s-1)^2+4))$ \
+We must decompose the right fraction: \
+$frac(s+1, s^2((s-1)^2+4)) = frac(A,s) + frac(B, s^2) + frac(C s+ D, (s-1)^2 + 4)$ \
+Multiply both sides by $s^2((s-1)^2+4)$: \
+$ s + 1 = A s^3 - 2A s^2 + 5A s + B s^2 - 2B s + 5B + C s^3 + D s^2$ \
+Coefficient matrix: \
+$ mat(1, 0, 1, 0, 0; -2, 1, 0, 1, 0; 5, -2, 0, 0,1;0,5,0,0,1;augment: #4)#tag[(arrow)]$
+#sym.arrow
+RREF: 
+$mat(1, 0, 0, 0, frac(7,25); 0, 1, 0, 0, frac(1,5); 0, 0, 1, 0,-frac(7,25);0,0,0,1,frac(9,25);augment: #4)$ \
+Backsubstituting: \
+$frac(s+1, s^2((s-1)^2+4)) = frac(7,25s) + frac(1, 5s^2) + frac(-7s+ 9, 25((s-1)^2 + 4))$ \
+Going back to our equation we get: \
+$frac(4, (s-1)^2 + 4) + frac(7,25s) + frac(1, 5s^2) + frac(-7s+ 9, 25((s-1)^2 + 4))$ \
+Getting the equation into form for inverse Laplace: \
+$frac(4, (s-1)^2 + 4) + frac(7,25s) + frac(1, 5s^2) + frac(-7,25)(frac(s-63, (s-1)^2 + 4))$ \
+Simplifying further: \
+$frac(4, (s-1)^2 + 4) + frac(7,25s) + frac(1, 5s^2) + frac(-7,25)(frac((s-1), (s-1)^2 + 4) - frac(62, (s-1)^2 + 4))$ \
+Taking $cal(L)^(-1)$ \
+$y = 2e^(t)sin(2t) + frac(7,25) + frac(1,5)t - frac(7,25)(e^(t)cos(2t) - 31e^(t)sin(2t))$
 
