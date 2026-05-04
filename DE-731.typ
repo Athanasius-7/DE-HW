@@ -14,7 +14,7 @@
 #set par(justify: true)
 #set align(center)
 Shift $s$ by $(s-(-2))$: \
-$cal(L){t^3e^(-2t)} = frac(6, (s+2)^3)$
+$cal(L){t^3e^(-2t)} = frac(6, (s+2)^4)$
 #set align(left)
 == 7. $cal(L){e^(t)sin(3t)}$
 #set align(center)
@@ -28,7 +28,7 @@ $cal(L){cos(5t) - e^(t)cos(5t) + 3e^(-4t)cos(5t)}$ \
 Which gives us: \
 $cal(L){cos(5t) - e^(t)cos(5t) + 3e^(-4t)cos(5t)}$ \
 Taking the Laplace: \
-$frac(s, s^2 + 25) - frac((s-1), (s-1)^2 + 25) + frac(3s, (s+4)^2 + 25)$
+$frac(s, s^2 + 25) - frac((s-1), (s-1)^2 + 25) + frac(3(s+4), (s+4)^2 + 25)$
 #set align(left)
 == 11. $cal(L)^(-1){frac(1, (s+3)^3)}$
 #set align(center)
@@ -54,10 +54,12 @@ Which gives us our final answer of: \
 #set align(left)
 == 15. $cal(L)^(-1){frac(s, s^2 + 4s + 5)}$
 #set align(center)
-First complete the square on the bottom: \
-$frac(s, (s+2)^2 + 1) $ \
+First complete the square on the bottom and get it into form: \
+$frac((s+2)-2, (s+2)^2 + 1) $ \
+Split the fraction: \
+$frac((s+2), (s+2)^2 + 1) - frac(2, (s+2)^2 + 1) $ \
 Take inverse which gives us our final answer: \
-*$[e^(-2t)cos(t)]$*
+*$[e^(-2t)cos(t)-2e^(-2t)sin(t)]$*
 #set align(left)
 == 16. $cal(L)^(-1){frac(2s+5, s^2 + 6s + 34)}$
 #set align(center)
@@ -205,6 +207,6 @@ Getting the equation into form for inverse Laplace: \
 $frac(4, (s-1)^2 + 4) + frac(7,25s) + frac(1, 5s^2) + frac(-7,25)(frac(s-63, (s-1)^2 + 4))$ \
 Simplifying further: \
 $frac(4, (s-1)^2 + 4) + frac(7,25s) + frac(1, 5s^2) + frac(-7,25)(frac((s-1), (s-1)^2 + 4) - frac(62, (s-1)^2 + 4))$ \
-Taking $cal(L)^(-1)$ \
-$y = 2e^(t)sin(2t) + frac(7,25) + frac(1,5)t - frac(7,25)(e^(t)cos(2t) - 31e^(t)sin(2t))$
+Taking $cal(L)^(-1)$: \
+*$[y = 2e^(t)sin(2t) + frac(7,25) + frac(1,5)t - frac(7,25)(e^(t)cos(2t) - 31e^(t)sin(2t))]$*
 
